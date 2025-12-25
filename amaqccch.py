@@ -25,7 +25,7 @@ async def get_all_slides(slide_type: str, request: Request):
         logger.error(err['data'])
         serviceHistory.append(f"{procts.action_at()},allslides,{request.client.host},failed,{procts.consumed_time()},err['data']")
         raise HTTPException(status_code=404, detail=err['data'])
-    errmsg = f'found {len(err['data'])} slide image files'
+    errmsg = f"found {len(err['data'])} slide image files"
     serviceHistory.append(f"{procts.action_at()},allslides,{request.client.host},completed,{procts.consumed_time()},{errmsg}")
     return err['data']
 
@@ -257,4 +257,5 @@ def verify_token(credentials: HTTPAuthorizationCredentials = Depends(security)):
 ##---------------------------------------------------------
 ## simulate CCH API for acquiring slide profile
 ##---------------------------------------------------------
+
 
