@@ -6,8 +6,9 @@ pathlib==1.0.1
 psutil==6.1.0
 pydantic==2.12.5
 pydantic_settings==2.12.0
-pywintypes
+pywin32
 PyYAML==6.0.2
 uvicorn==0.32.1
 WMI==1.5.1
+
 
