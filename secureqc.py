@@ -111,7 +111,7 @@ async def get_all_slides(slide_type: str, user_role: str=Depends(verify_token)):
         logger.error(err['data'])
         serviceHistory.append(f"{procts.action_at()},allslides,{user_role['who']},failed,{procts.consumed_time()},err['data']")
         raise HTTPException(status_code=404, detail=err['data'])
-    errmsg = f'found {len(err['data'])} slide image files'
+    errmsg = f"found {len(err['data'])} slide image files"
     serviceHistory.append(f"{procts.action_at()},allslides,{user_role['who']},completed,{procts.consumed_time()},{errmsg}")
     return err['data']
 
@@ -299,4 +299,5 @@ async def change_magic_number_for_QC(s: int, a: int, user_role: str=Depends(veri
         errstat = 'failed'
     serviceHistory.append(f"{procts.action_at()},changeQCmagic,{user_role['who']},{errstat},{procts.consumed_time()},{retstr}")
     return retstr
+
 
