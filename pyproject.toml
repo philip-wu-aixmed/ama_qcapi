@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ama_qcapi"
+dynamic = ["version"]
+authors = [
+    {name = "Philip Wu", email = "philip.wu@aixmed.com"},
+]
+description = "API service for querying analyzed metadata specified for CCH QC reference"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["fastapi", "uvicorn", 
+                "pydantic", "pydantic_settings",
+                "loguru",
+				"pathlib",
+				"PyJWT", 
+				"PyYAML",
+				"datetime",
+				"pathlib",
+				"psutil",
+				"pywin32"
+			   ]
+
+[project.scripts]
+qcapi-cch = "cli:main"
+
+[tool.setuptools.dynamic]
+version = {attr = "cchqc.__version__"}
